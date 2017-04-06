@@ -13,7 +13,7 @@ std::vector<accelerator> findAccelerators(){
 	std::vector<accelerator> accels;
 	accels = accelerator::get_all();
 
-	for (int i = 0; i<accels.size(); i++){
+	for (size_t i = 0; i<accels.size(); i++){
 		std::wcout << i + 1 << "th device = " << accels[i].get_description() << "\n";
 	}
 
@@ -30,6 +30,7 @@ void getAccelDiscription(const accelerator& accel){
 	std::cout << "\tis supporting double precision: " << (accel.get_supports_double_precision() ? "yes" : "no") << std::endl;
 	std::cout << "\tis attached to a display: " << (accel.get_has_display() ? "yes" : "no") << std::endl;
 	std::cout << "\tis supporting cpu shared memory: " << (accel.get_supports_cpu_shared_memory() ? "yes" : "no") << std::endl;
+	accel.get_auto_selection_view();
 	return;
 }
 
